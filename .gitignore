@@ -1,0 +1,33 @@
+# Diretórios de dependências
+node_modules/
+
+# Build gerado pelo React (não é necessário versionar os arquivos build)
+build/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Configurações de IDE/editor (ajuste conforme suas ferramentas)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Cobertura de testes (se aplicável)
+coverage/
+
+# Outros arquivos temporários
+*.log
