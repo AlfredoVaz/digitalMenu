@@ -4,6 +4,7 @@ import { createRepo } from './createRepo.js';
 import { deployGitHubPages } from './deployGitHubPages.js';
 import { deleteRepo } from './deleteRepo.js';
 import { Octokit } from '@octokit/rest';
+import { pushTemplate } from './pushTemplate.js';
 
 (async () => {
     let repoCreated = false;
