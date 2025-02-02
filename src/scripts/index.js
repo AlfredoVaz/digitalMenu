@@ -40,7 +40,13 @@ import { Octokit } from '@octokit/rest';
 
         // 4. Retrieve the clone_url from the newly created repo
         const repoUrl = repoData.clone_url;
-
+        
+        // 5. Push the build files (static content) using pushTemplate
+        console.log('> Pushing template (build files) to the repository...');
+        await pushTemplate(owner, repoName, repoUrl, githubToken);
+        console.log('> Template pushed successfully.');
+        
+        // 6. Deploy to GitHub Pages using deployGitHubPages
         console.log('> Deploying to GitHub Pages...');
         const siteUrl = await deployGitHubPages(owner, repoName, repoUrl, githubToken);
 
