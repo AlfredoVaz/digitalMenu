@@ -1,0 +1,16 @@
+{
+  "name": "scripts",
+  "version": "1.1.0",
+  "description": "Este projeto contém scripts em Node.js para criar automaticamente um repositório no GitHub e fazer o deploy do conteúdo local diretamente para o GitHub Pages.",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^21.1.0"
+  }
+}
