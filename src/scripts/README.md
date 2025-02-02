@@ -12,4 +12,4 @@ Este projeto contém scripts em Node.js para criar automaticamente um repositór
 4. **Variável de ambiente `GITHUB_TOKEN`**: Você deve exportar seu token antes de rodar o script.  
    Exemplo em Unix-like (Linux/Mac):
    ```bash
-   export GITHUB_TOKEN="seu-token-aqui"
+   export GITHUB_TOKEN="Aqui"
