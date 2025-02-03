@@ -8,7 +8,7 @@ const Galeria = () => {
     useEffect(() => {
         const carregarImagens = async () => {
             try {
-                const response = await fetch("/imagens.json");
+                const response = await fetch("./imagens.json");
                 const data = await response.json();
                 console.log(data);
                 
@@ -34,7 +34,7 @@ const Galeria = () => {
                     {imagens.map((src, index) => (
                         <img
                         key={index}
-                        src={`/images/${src}`}
+                        src={`./images/${src}`}
                         loading="lazy"
                         alt={`Imagem ${index}`}
                         />

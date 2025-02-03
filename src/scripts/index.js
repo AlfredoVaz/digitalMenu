@@ -4,6 +4,8 @@ import { createRepo } from './createRepo.js';
 import { deployGitHubPages } from './deployGitHubPages.js';
 import { deleteRepo } from './deleteRepo.js';
 import { Octokit } from '@octokit/rest';
+import { pushTemplate } from './pushTemplate.js';
+import { generateQRCode } from './generateQRCode.js';
 
 (async () => {
     let repoCreated = false;
@@ -38,14 +40,24 @@ import { Octokit } from '@octokit/rest';
         repoCreated = true;
         console.log('Repository created successfully!');
 
-        // 4. Retrieve the clone_url from the newly created repo
+        // 4. Generate QRCode
+        await generateQRCode(owner, repoName)
+
+        // 5. Retrieve the clone_url from the newly created repo
         const repoUrl = repoData.clone_url;
 
+        // 6. Push the build files (static content) using pushTemplate
+        console.log('> Pushing template (build files) to the repository...');
+        await pushTemplate(owner, repoName, repoUrl, githubToken);
+        console.log('> Template pushed successfully.');
+        
+        // 7. Deploy to GitHub Pages using deployGitHubPages
         console.log('> Deploying to GitHub Pages...');
         const siteUrl = await deployGitHubPages(owner, repoName, repoUrl, githubToken);
 
         console.log('Deployment completed successfully!');
         console.log(`Your GitHub Pages site URL: ${siteUrl}`);
+
     } catch (error) {
         console.error('An error occurred during the process:');
         console.error(error);
