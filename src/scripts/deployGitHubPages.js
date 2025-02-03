@@ -11,23 +11,7 @@ import { Octokit } from '@octokit/rest';
  * @returns {Promise<string>} - Returns the URL of the GitHub Pages site.
  */
 export async function deployGitHubPages(owner, repoName, repoUrl, token) {
-    console.log('> Initializing local Git repository...');
-    const authenticatedUrl = repoUrl.replace('https://', `https://${token}@`);
-
-    // Initialize local repo, commit, and push to 'main'
-    execSync('rm -rf .git');
-    execSync('git init', { stdio: 'inherit' });
-    execSync('git status', { stdio: 'inherit' });
-    execSync('git add ./index.html', { stdio: 'inherit' });
-    execSync('git commit -m "Initial commit"', { stdio: 'inherit' });
-    execSync('git branch -M main', { stdio: 'inherit' });
-    execSync(`git remote add origin ${repoUrl}`, { stdio: 'inherit' });
-    execSync(`git remote set-url origin ${authenticatedUrl}`, { stdio: 'inherit' });
-
-    execSync('git push -u origin main', { stdio: 'inherit' });
-
-    console.log('> Local repository synchronized with GitHub.');
-
+    
     console.log('> Configuring GitHub Pages for the main branch...');
     const octokit = new Octokit({ auth: token });
 

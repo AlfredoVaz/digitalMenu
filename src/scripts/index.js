@@ -41,7 +41,7 @@ import { pushTemplate } from './pushTemplate.js';
 
         // 4. Retrieve the clone_url from the newly created repo
         const repoUrl = repoData.clone_url;
-        
+
         // 5. Push the build files (static content) using pushTemplate
         console.log('> Pushing template (build files) to the repository...');
         await pushTemplate(owner, repoName, repoUrl, githubToken);
@@ -53,6 +53,8 @@ import { pushTemplate } from './pushTemplate.js';
 
         console.log('Deployment completed successfully!');
         console.log(`Your GitHub Pages site URL: ${siteUrl}`);
+
+
     } catch (error) {
         console.error('An error occurred during the process:');
         console.error(error);
