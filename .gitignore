@@ -24,8 +24,7 @@ coverage/
 *.local
 
 # pacotes de lock
-package-lock.json*
-src/template/package-lock.json
+*package-lock.json*
 yarn.lock
 
 # macOS ou Windows (opcional, se estiver trabalhando em ambientes mistos)

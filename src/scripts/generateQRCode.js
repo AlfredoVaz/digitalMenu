@@ -20,15 +20,6 @@ export async function generateQRCode(owner, repoName) {
 }
 
 // Obtém a URL passada como argumento pelo orquestrador
-const url = process.argv[2];
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const outputFile = path.join(__dirname, '../template/public/qrcode.png');
-
-if (!url) {
-    console.error("Erro: Informe a URL como argumento.");
-    process.exit(1);
-}
-
-// Executa a função
-generateQRCode(url);

@@ -97,25 +97,3 @@ export async function pushTemplate(owner, repoName, repoUrl, token) {
   console.log(`> GitHub Pages configurado. Acesse: ${siteUrl}`);
   return siteUrl;
 }
-
-/**
- * Execução quando o script é chamado diretamente.
- * Recebe os parâmetros da linha de comando: owner, repoName, repoUrl, token.
- */
-if (process.argv[1] === new URL(import.meta.url).pathname) {
-    // Se o script está sendo executado diretamente via CLI, processa os argumentos
-    if (process.argv.length >= 6) {
-      const [,, owner, repoName, repoUrl, token] = process.argv;
-      pushTemplate(owner, repoName, repoUrl, token)
-        .then(siteUrl => {
-          console.log('Deploy concluído com sucesso:', siteUrl);
-        })
-        .catch(error => {
-          console.error('Erro no deploy:', error);
-          process.exit(1);
-        });
-    } else {
-      console.error('Uso: node pushTemplate.js <owner> <repoName> <repoUrl> <githubToken>');
-      process.exit(1);
-    }
-  }
