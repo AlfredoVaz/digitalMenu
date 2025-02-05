@@ -24,7 +24,7 @@ coverage/
 *.local
 
 # pacotes de lock
-package-lock.json*
+*package-lock.json*
 yarn.lock
 
 # macOS ou Windows (opcional, se estiver trabalhando em ambientes mistos)
@@ -32,3 +32,7 @@ yarn.lock
 Thumbs.db
 
 .idea/
+
+#QRcode
+src/template/public/qrcode.png
+

@@ -21,6 +21,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
+    "qrcode": "^1.5.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "^5.0.1"
@@ -36,5 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://AlfredoVaz.github.io/pushTemplateLastTest/"
 }
