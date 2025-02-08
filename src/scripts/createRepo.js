@@ -9,13 +9,13 @@ import { Octokit } from '@octokit/rest';
  * @returns {Promise<object>} - The full repository data from the GitHub API
  */
 export async function createRepo(owner, repoName, token) {
-    const octokit = new Octokit({ auth: token });
+  const octokit = new Octokit({ auth: token });
 
-    const response = await octokit.rest.repos.createForAuthenticatedUser({
-        name: repoName,
-        private: false,
-        description: 'Repository created via script',
-    });
+  const response = await octokit.rest.repos.createForAuthenticatedUser({
+    name: repoName,
+    private: false,
+    description: `Repository to serve the menu for ${repoName}`,
+  });
 
-    return response.data;
+  return response.data;
 }

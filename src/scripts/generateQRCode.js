@@ -2,21 +2,24 @@ import QRCode from 'qrcode';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-export async function generateQRCode(owner, repoName) {
-    try {
-        const url = `https://${owner}.github.io/${repoName}/`;
-        console.log(`> Gerando QR Code para: ${url}`);
+export async function generateQRCode(siteUrl) {
+  try {
+    console.log(`> Gerando QR Code para: ${siteUrl}`);
+    const url = siteUrl;
+    // Gera o QR Code e salva como imagem
+    await QRCode.toFile(
+      path.join(__dirname, '../template/public/qrcode.png'),
+      siteUrl,
+      {
+        width: 300,
+        margin: 2,
+      },
+    );
 
-        // Gera o QR Code e salva como imagem
-        await QRCode.toFile(path.join(__dirname, '../template/public/qrcode.png'), url, {
-            width: 300,
-            margin: 2
-        });
-
-        console.log(`> QR Code salvo em: ${outputFile}`);
-    } catch (error) {
-        console.error('Erro ao gerar QR Code:', error);
-    }
+    console.log(`> QR Code salvo em: ${outputFile}`);
+  } catch (error) {
+    console.error('Erro ao gerar QR Code:', error);
+  }
 }
 
 // Obtém a URL passada como argumento pelo orquestrador

@@ -9,9 +9,9 @@ import { Octokit } from '@octokit/rest';
  * @param {string} token - GitHub authentication token
  */
 export async function deleteRepo(owner, repoName, token) {
-    const octokit = new Octokit({ auth: token });
-    await octokit.rest.repos.delete({
-        owner,
-        repo: repoName,
-    });
+  const octokit = new Octokit({ auth: token });
+  await octokit.rest.repos.delete({
+    owner,
+    repo: repoName,
+  });
 }

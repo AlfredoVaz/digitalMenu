@@ -11,23 +11,22 @@ import { Octokit } from '@octokit/rest';
  * @returns {Promise<string>} - Returns the URL of the GitHub Pages site.
  */
 export async function deployGitHubPages(owner, repoName, repoUrl, token) {
-    
-    console.log('> Configuring GitHub Pages for the main branch...');
-    const octokit = new Octokit({ auth: token });
+  console.log('> Configuring GitHub Pages for the main branch...');
+  const octokit = new Octokit({ auth: token });
 
-    // Enable GitHub Pages from the 'main' branch
-    await octokit.request('POST /repos/{owner}/{repo}/pages', {
-        owner,
-        repo: repoName,
-        source: {
-            branch: 'main',
-            path: '/'
-        },
-        headers: {
-            'X-GitHub-Api-Version': '2022-11-28'
-        }
-    })
+  // Enable GitHub Pages from the 'main' branch
+  await octokit.request('POST /repos/{owner}/{repo}/pages', {
+    owner,
+    repo: repoName,
+    source: {
+      branch: 'main',
+      path: '/',
+    },
+    headers: {
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
 
-    // Return the final site URL
-    return `https://${owner}.github.io/${repoName}/`;
+  // Return the final site URL
+  return `https://${owner}.github.io/${repoName}/`;
 }

@@ -2,9 +2,10 @@
   "name": "scripts",
   "version": "1.1.0",
   "description": "Este projeto contém scripts em Node.js para criar automaticamente um repositório no GitHub e fazer o deploy do conteúdo local diretamente para o GitHub Pages.",
-  "main": "index.js",
+  "main": "create-and-publish.js",
   "scripts": {
-    "run": "node index.js"
+    "create-and-publish": "node create-and-publish.js",
+    "format": "prettier --write \"*.js\""
   },
   "type": "module",
   "keywords": [],
@@ -13,5 +14,8 @@
   "dependencies": {
     "@octokit/rest": "^21.1.0",
     "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
   }
 }
