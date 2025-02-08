@@ -5,6 +5,7 @@
   "main": "create-and-publish.js",
   "scripts": {
     "create-and-publish": "node create-and-publish.js",
+    "delete": "node delete.js",
     "format": "prettier --write \"*.js\""
   },
   "type": "module",

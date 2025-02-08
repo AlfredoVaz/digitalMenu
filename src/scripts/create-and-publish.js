@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 // Import required modules
-import { createRepo } from './createRepo.js';
-import { deployGitHubPages } from './deployGitHubPages.js';
-import { deleteRepo } from './deleteRepo.js';
+import { createRepo } from './src/createRepo.js';
+import { deployGitHubPages } from './src/deployGitHubPages.js';
+import { deleteRepo } from './src/deleteRepo.js';
 import { Octokit } from '@octokit/rest';
-import { pushTemplate } from './pushTemplate.js';
-import { generateQRCode } from './generateQRCode.js';
+import { pushTemplate } from './src/pushTemplate.js';
+import { generateQRCode } from './src/generateQRCode.js';
 
 /**
  * Main function that executes the flow to create the repository,
