@@ -16,7 +16,7 @@ function runBuild() {
   const __dirname = path.dirname(__filename);
 
   // Construct the absolute path for the "template" folder (assuming pushTemplate.js is inside a "scripts/" folder)
-  const templatePath = path.join(__dirname, '../template');
+  const templatePath = path.join(__dirname, '../../template');
   console.log('> Running build in the template folder...');
 
   // Execute "npm install" in the template folder
@@ -49,7 +49,7 @@ function setDynamicHomepage(owner, repoName) {
   // Determine the absolute path for the package.json inside the "template" folder
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const packageJsonPath = path.join(__dirname, '../template/package.json');
+  const packageJsonPath = path.join(__dirname, '../../template/package.json');
 
   // Read the package.json file
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));

@@ -8,7 +8,7 @@ export async function generateQRCode(siteUrl) {
     const url = siteUrl;
     // Gera o QR Code e salva como imagem
     await QRCode.toFile(
-      path.join(__dirname, '../template/public/qrcode.png'),
+      path.join(__dirname, '../../template/public/qrcode.png'),
       siteUrl,
       {
         width: 300,
@@ -25,4 +25,4 @@ export async function generateQRCode(siteUrl) {
 // Obtém a URL passada como argumento pelo orquestrador
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const outputFile = path.join(__dirname, '../template/public/qrcode.png');
+const outputFile = path.join(__dirname, '../../template/public/qrcode.png');
